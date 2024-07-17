@@ -1,49 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VisitPaul.com - Transition Announcement</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .container {
-            text-align: center;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #333;
-        }
-        p {
-            color: #555;
-        }
-        .logo {
-            font-size: 24px;
-            color: #888;
-            margin-bottom: 20px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <link rel="icon" href="VPicon.ico" type="image/x-icon">
+  <meta name="author" content="Paul">
+  <meta name="description" content="VisitPaul">
+  <meta name="keywords" content="Paul, personal website, life experiences, personal projects, unique insights">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Discover Paul's World: Insights and Adventures</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="container">
-        <div class="logo">
-            &#128187; VisitPaul.com &#128187;
-        </div>
-        <h1>I'm moving VisitPaul to GitHub!</h1>
-        <p>Thank you for your patience while I transition from my Ubuntu self hosting to GitHub.</p>
-        <p>I apologize for the site being down for the past 2 months, I was tired of spending hours to address random self host issues and wanted a break.</p>
-        <p>VisitPaul.com still is, and always will be, a celebration of the internet and web design.</p>
+  <div id="konamiModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <h2>CONTRA MODE ACTIVATED</h2>
+        <p>A secret portal appears! The warp tunnel unveils Paul's inner meme and unlocks all scroll bar fun facts, do you enter..?</p>
+        <button onclick="window.location.href='konami.html'">Absolutely!</button>
     </div>
+</div>
+
+  <script src="scrollbar.js"></script>
+  <div class="scrolling-bar" id="factBar">Current time: </div>
+
+  <video autoplay muted loop id="myVideo">
+    <source src="stars.mp4" type="video/mp4">
+  </video>
+  <header>
+    <nav>
+      <ul>
+        <li>
+          <h1 id="logo-header">
+            <a href="index.html" style="color: inherit; text-decoration: none;">VisitPaul.com</a>
+          </h1>
+          <h3 class="last-updated">Last updated: 7/17/24 - Back online with a new host: GitHub! Thanks for your patience.</h3>
+          <a href="gifs.html"><h1 class="interactive-gifs"><em><strong>Interactive GIF's!</strong></em></h1></a>
+        </li>
+        <li>
+          <a href="about.html" class="animated-text">About Me! &lt;==</a>
+        </li>
+        <li>
+          <a href="contact.html"><img src="email.gif" alt="Click to contact Paul!"></a>
+        </li>
+      </ul>
+    </nav>
+  </header>  
+  <hr>
+  <main>
+    <article id="about">
+      <h2>My creative works</h2>
+      <div class="box-outset2">
+        I've published a book, released some chiptune music, and often dabble with technology.<strong> Click below to learn more!</strong></div>
+      
+      <nav>
+        <ul>
+          <li>
+            <a href="music.html">
+              <img src="musicnote.gif" alt="Paul's chiptune music!" width="80" height="80">
+          </a>
+            <a href="book.html"><img src="paulbook.gif" alt="Paul's book, The Bananaverse!"></a>
+            <a href="tech.html" class="animated-text">Projects<br>Gaming<br>& Tech</a>
+          </li>
+        </ul>
+      </nav>
+    </article>
+    <h3><abbr title="Useful stuff">Paul's Playbook</abbr></h3>
+    <a href="cherry.html">Preserve Cherries for a year with Liquor and Sugar! 21+</a><br>
+    <a href="lazyworkout.html">Low Effort, Full Workouts you can try!</a><br>
+    <a href="restore.html">Want to Restore a Car? Quick Look + Alternatives</a><br>
+    <a href="gamestotry.html">Have a hard time finding a novel video game?</a><br>
+    <span style="color: black;">&#8593;&#8593;&#8595;&#8595;&#8592;&#8594;&#8592;&#8594;BA</span>
+  </main>
+  <footer>
+    <div class="box-outset">
+      <p><em>Thank you for visiting! </em>This website only allows a secure connection. <a href="faq.html">FAQ Page</a><br><br><strong>Notice: HTTPS only.</strong> Experiencing connection issues? Use an updated browser or ensure "https://" is in the address bar.</p>
+    </div>
+    <div style="display: flex; align-items: center; justify-content: space-between;">
+      <a href="linux.html"><img src="linux_powered.png" alt="Linux powered website! Click to hear my thoughts on Linux and Windows."></a>
+      <p style="margin: 0;">
+        <a href="copyright.html" style="color: inherit; text-decoration: none; font-size: 0.9em;">
+          <strong>Legal & Privacy Info</strong><br>
+          Copyright © 2024 Paul Stultz.
+        </a>
+      </p>
+    </div>
+</footer>
+
+  <script src="konami.js"></script>
+  <!--  <script src="fireworks.js"></script>-->
 </body>
+
 </html>

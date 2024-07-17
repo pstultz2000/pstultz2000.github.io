@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Play VoidLoop</title>
+    <style>
+    #gameCanvas {
+    width: 100%;
+    height: 100vh;
+    object-fit: contain;
+    display: block;
+    margin: auto;
+    background-color: black;
+}
+
+    </style>
+</head>
+<body>
+    <audio id="backgroundMusic" src="Transition.wav" loop></audio>
+    <button id="startButton">Enable sound</button>
+    <button id="colorButton">Change Spaceship Color</button>
+    <button id="countButton">Increase stats! *stackable</button>
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+    <script src="voidLoop.js"></script>
+</body>
+</html>

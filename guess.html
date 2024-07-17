@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Guessing Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #000428;
+      background: -webkit-linear-gradient(to right, #004e92, #000428);
+      background: linear-gradient(to right, #004e92, #000428);
+      color: white;
+overflow: hidden;
+position: relative;
+height: 100vh;
+}
+body::before {
+content: '';
+position: absolute;
+top: 0; right: 0; bottom: 0; left: 0;
+background: transparent;
+box-shadow: 1px 1px #fff, 20px 20px #fff, 40px 60px #fff, 70px 10px #fff, 90px 30px #fff, 110px 80px #fff, 150px 100px #fff, 200px 150px #fff, 250px 200px #fff;
+pointer-events: none;
+}
+</style>
+  
+   </head>
+   <body>
+    <h3 id="gameInfo">This is an experimental game made to test what is possible to store and convieniently load using only a mobile QR code.</h3>
+     <h1 id="question"></h1>
+     <button id="yesBtn">Yes</button>
+     <button id="noBtn">No</button>
+     <p id="result"></p>
+     <script>
+      (function() {
+  var questions = ['Think of something!.. Is it a living thing?', 'Is it larger than a breadbox?', 'Is it man-made?', 'Can it be held in one hand?', 'Is it commonly used in households?'];
+var answers = [['Non-Living', 'Living'], ['Large Living', 'Small Living'], ['Man-Made Object', 'Non-Man-Made'], ['Handheld Object', 'Large Object'], ['Household Item', 'Uncommon Item']];
+var currentQuestion = 0;
+
+function showQuestion() {
+if (currentQuestion < questions.length) {
+document.getElementById('question').innerText = questions[currentQuestion];
+document.getElementById('yesBtn').disabled = false;
+document.getElementById('noBtn').disabled
+
+= false;
+} else {
+document.getElementById('question').innerText = "Game Over! Final category:";
+document.getElementById('yesBtn').disabled = true;
+document.getElementById('noBtn').disabled = true;
+}
+}
+
+function handleAnswer(isYes) {
+if (isYes) {
+document.getElementById('result').innerText = 'Category: ' + answers[currentQuestion][0];
+} else {
+document.getElementById('result').innerText = 'Category: ' + answers[currentQuestion][1];
+}
+currentQuestion++;
+showQuestion();
+}
+
+window.onload = function() {
+showQuestion();
+document.getElementById('yesBtn').onclick = function() { handleAnswer(true); };
+document.getElementById('noBtn').onclick = function() { handleAnswer(false); };
+}
+})();
+     </script>
+   </body>
+   </html>

@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     let currentFact = "Welcome to VisitPaul.com!";
     let recentFacts = [];
-    const maxRecentFacts = 35;
+    const maxRecentFacts = 30;
 
 const facts = [
     "Paul spent many hours creating and hosting this site...",
@@ -17,13 +17,10 @@ const facts = [
     "Initial development of this site began mid 2023.",
     "So far, Paul has attended four different colleges.",
     "I used to play the Alto Sax- once I became skilled, I quit.",
-    "Mead, known as 'Honey wine', is very simple to brew.",
     "Much of this website's work was completed at night.",
-    "Try putting homemade eggnog into your coffee.",
     "2005-2015 was peak computing. I still miss Windows 7...",
     "People often call my Camaro 'Bumblebee'.",
     "Random algorithms are not truly random.",
-    "Paul enjoys a wide assortment of beers, wines, and liqours.",
     "For my 23rd birthday, I bought what I wanted on my 13th B-Day.",
     "As a teen, I spent hours viewing endangered animals on Wikipedia.",
     "I ran a video game club, 'Pokken Smash', in high school.",
@@ -34,11 +31,9 @@ const facts = [
     "As an adult, I went half a year without eating a desert.",
     "It would take over 10 minutes to view all my fun facts in one visit.",
     "I prefer my coffee unsweetened or extremely sweetened- no inbetween.",
-    "Long Island Tea is one of my favorite mix drinks.",
     "I have probably spent thousands of hours playing video games.",
     "Since I was a kid, I have wanted a classic car.",
     "I was just a few minutes away from being born in November.",
-    "When someone dares me to do something, I often accept.",
     "One time, I willfully drank a quart of kefir in under 10 minutes.",
     "As a kid, I would roll up bread with PB inside and dip it in milk.",
     "I won a pie eating contest, and could hardly stand up afterwards.",

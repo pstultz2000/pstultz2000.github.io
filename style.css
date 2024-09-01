@@ -235,6 +235,47 @@ th, td, caption, p, table {
   top: -10px;
 }
 
+.animated-text-2 {
+  color: #00e3a0; /* Bright turquoise color fitting a space theme */
+  text-decoration: none;
+  font-size: 1.2em;
+  font-family: 'Helvetica', sans-serif;
+
+
+  display: inline-block;
+  position: relative;
+  transition: all 0.3s ease;
+  animation: float-up-down 3s infinite alternate ease-in-out;
+}
+
+@keyframes float-up-down {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow-pulse {
+  0% {
+    text-shadow: 0 0 5px #00e3a0, 0 0 10px #00e3a0, 0 0 20px #00e3a0, 0 0 40px #00e3a0;
+    transform: translateY(0);
+  }
+  50% {
+    text-shadow: 0 0 10px #00ffb5, 0 0 20px #00ffb5, 0 0 30px #00ffb5, 0 0 60px #00ffb5;
+    transform: translateY(-5px);
+  }
+  100% {
+    text-shadow: 0 0 5px #00e3a0, 0 0 10px #00e3a0, 0 0 20px #00e3a0, 0 0 40px #00e3a0;
+    transform: translateY(0);
+  }
+}
+
+
 @keyframes swing {
   0% { transform: rotate(0deg); }
   10% { transform: rotate(10deg); }

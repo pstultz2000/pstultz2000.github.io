@@ -21,6 +21,20 @@
         .text-box p {
             color: #B19CD9; /* Brighter purple text color for paragraphs */
         }
+        .photo-grid {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .photo-grid img {
+            max-width: 200px;
+            height: auto;
+        }
+        .photo-caption {
+            text-align: center;
+            color: white;
+            font-size: 14px;
+        }
     </style>
 </head>
 
@@ -28,6 +42,30 @@
     <video autoplay muted loop id="myVideo">
         <source src="stars.mp4" type="video/mp4">
     </video>
+
+    <!-- Manual Exposure Section -->
+    <h2 class="text-box">Manual Exposure Exercise</h2>
+    
+    <div class="photo-grid">
+        <div>
+            <img src="under.JPG" alt="Underexposed Photo">
+            <p class="photo-caption">Underexposed (-2 EV)<br>ISO 800, f/8, 1/1000 sec</p>
+        </div>
+        <div>
+            <img src="reg.JPG" alt="Correct Exposure Photo">
+            <p class="photo-caption">Correct Exposure<br>ISO 800, f/8, 1/250 sec</p>
+        </div>
+        <div>
+            <img src="over.JPG" alt="Overexposed Photo">
+            <p class="photo-caption">Overexposed (+2 EV)<br>ISO 800, f/8, 1/60 sec</p>
+        </div>
+    </div>
+    
+    <div class="text-box">
+        <p><strong>Using a rose bush as a colorful subject, I took these photos to demonstrate three different exposures: underexposed (-2 EV), correct exposure, and overexposed (+2 EV). Each photo was taken with the same ISO and aperture settings, with only the shutter speed adjusted to vary the exposure.<br><br>Taken in my backyard in West Linn, Oregon, for a digital photography course.</strong></p>
+        <p><strong>Photos by Paul Stultz</strong></p>
+        <p><strong>Date Shot: September 14, 2024</strong></p>
+    </div>
 
     <!-- Bagel's Frozen Motion -->
     <h2 class="text-box">Creative Shutter Speed: Bagel's Flight</h2>
@@ -45,11 +83,10 @@
     </div>
 
     <!-- Bagel's Motion Blur -->
-    
     <img src="IMG_3428.JPG" alt="Motion Blur of Bagel" style="width:100%; max-width:600px; display:block; margin:auto;">
     
     <div class="text-box">
-        <p><strong>Bagel, a French Bulldog, leaps onto the couch, creating a dynamic blur on September 8, 2024, in her backyard in West Linn, Oregon. This photo captures motion blur to highlight movement, demonstrating the use of a slow shutter speed for a digital photography course.</strong></p>
+        <p><strong>Bagel, a French Bulldog, leaps off the couch, creating a dynamic blur on September 8, 2024, in her backyard in West Linn, Oregon. This photo captures motion blur to highlight movement, demonstrating the use of a slow shutter speed for a digital photography course.</strong></p>
         
         <p><strong>Photo by Paul Stultz</strong></p>
         

@@ -55,7 +55,7 @@ body {
   border-width: 0.5rem;
   border-color: green;
   outline: 0.5rem outset rgb(87, 8, 87);
-  background-color: rgb(25, 5, 52);
+  background-color: rgb(20, 4, 40);
   z-index: 1;
 }
 
@@ -496,15 +496,6 @@ body {
     border-right: 20px dashed #bbb800;
     /* animation: border-color-change 15s infinite; */
    
-}
-
-
-.box-outset{
-  border-width: 0.5rem;
-  border-color: green;
-  outline: 0.5rem outset rgb(87, 8, 87);
-  background-color: rgb(25, 5, 52);
-  z-index: 1;
 }
 
 .box-outset2{

@@ -10,30 +10,22 @@
     <link rel="stylesheet" href="style.css">
     <style>
         .text-box {
-            background-color: black; /* Black background */
-            color: white; /* Default white text color */
+            background-color: black;
+            color: white;
             padding: 15px;
             margin: 20px auto;
             max-width: 600px;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for better visibility */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         .text-box p {
-            color: #B19CD9; /* Brighter purple text color for paragraphs */
+            color: #B19CD9;
         }
-        .photo-grid {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-        .photo-grid img {
-            max-width: 200px;
-            height: auto;
-        }
-        .photo-caption {
-            text-align: center;
-            color: white;
-            font-size: 14px;
+        img {
+            width: 100%;
+            max-width: 600px;
+            display: block;
+            margin: auto;
         }
     </style>
 </head>
@@ -43,100 +35,111 @@
         <source src="stars.mp4" type="video/mp4">
     </video>
 
-    <!-- Manual Exposure Section -->
-    <h2 class="text-box">Manual Exposure Exercise</h2>
-    
-    <div class="photo-grid">
-        <div>
-            <img src="under.JPG" alt="Underexposed Photo">
-            <p class="photo-caption">Underexposed (-2 EV)<br>ISO 800, f/8, 1/1000 sec</p>
-        </div>
-        <div>
-            <img src="reg.JPG" alt="Correct Exposure Photo">
-            <p class="photo-caption">Correct Exposure<br>ISO 800, f/8, 1/250 sec</p>
-        </div>
-        <div>
-            <img src="over.JPG" alt="Overexposed Photo">
-            <p class="photo-caption">Overexposed (+2 EV)<br>ISO 800, f/8, 1/60 sec</p>
-        </div>
-    </div>
+    <!-- Visual Variety: A Day at Cannon Beach -->
+    <h2 class="text-box">Visual Variety: A Day at Cannon Beach</h2>
+
+    <!-- Wide Shot -->
+    <img src="WIDE.JPG" alt="Wide Shot of Zelda at Cannon Beach">
     
     <div class="text-box">
-        <p><strong>Using a rose bush as a colorful subject, I took these photos to demonstrate three different exposures: underexposed (-2 EV), correct exposure, and overexposed (+2 EV). Each photo was taken with the same ISO and aperture settings, with only the shutter speed adjusted to vary the exposure.<br><br>Taken in my backyard in West Linn, Oregon, for a digital photography course.</strong></p>
-        <p><strong>Photos by Paul Stultz</strong></p>
-        <p><strong>Date Shot: September 14, 2024</strong></p>
-        <p><strong>Additional Exposure Information: 29.0 mm focal length for all three images</strong></p>
-        <p><strong>Copyright <a href="copyright.html" target="_blank">© 2024 Paul Stultz. All Rights Reserved.</a></strong></p>
+        <p><strong>Zelda, a kindergarten teacher, enjoys the breath taking view of Cannon Beach's 'Haystack Rock' in Oregon, on September 20, 2024, showing off a bright and breezy day. This wide shot establishes the scene and provides the sense of place for a day on the summer beach.</strong></p>
+        <p><strong>Photo by Paul Stultz</strong></p>
+        <p><strong>Date Shot: September 20, 2024</strong></p>
+        <p><strong>Exposure Information: ISO 100, f/8.0, 1/320 sec, 29.0 mm</strong></p>
     </div>
+
+    <!-- Medium Shot -->
+    <img src="MEDIUM.JPG" alt="Medium Shot of Zelda at Cannon Beach">
     
+    <div class="text-box">
+        <p><strong>Zelda, a kindergarten teacher, throws sand into the air, creating a dynamic display against the clear blue sky at Cannon Beach Oregon on September 20, 2024. This shot captures the joy and movement of the moment, emphasizing her playful interaction with the environment.</strong></p>
+        <p><strong>Photo by Paul Stultz</strong></p>
+        <p><strong>Date Shot: September 20, 2024</strong></p>
+        <p><strong>Exposure Information: ISO 100, f/6.3, 1/320 sec, 29.0 mm</strong></p>
+    </div>
+
+    <!-- Close-Up Shot -->
+    <img src="CLOSE.JPG" alt="Close-Up of Zelda at Cannon Beach">
+    
+    <div class="text-box">
+        <p><strong>Zelda, a kindergarten teacher, squinting and playfully wrapped in her cozy jacket, takes in the salty air of Cannon Beach Oregon on September 20, 2024. This close-up shot tells the story of the moment, with Zelda taking a brief break from the sun and winds.</strong></p>
+        <p><strong>Photo by Paul Stultz</strong></p>
+        <p><strong>Date Shot: September 20, 2024</strong></p>
+        <p><strong>Exposure Information: ISO 100, f/4.5, 1/400 sec, 29.0 mm</strong></p>
+    </div>
+
+    <!-- High Angle Shot -->
+    <img src="HIGH.JPG" alt="High Angle Shot of Zelda at Cannon Beach">
+    
+    <div class="text-box">
+        <p><strong>Captured from above, this high angle shot of Zelda, a kindergarten teacher, adds a dynamic perspective as she throws sand into the air at Cannon Beach Oregon, on September 20, 2024, creating a playful interaction with her surroundings.</strong></p>
+        <p><strong>Photo by Paul Stultz</strong></p>
+        <p><strong>Date Shot: September 20, 2024</strong></p>
+        <p><strong>Exposure Information: ISO 100, f/4.5, 1/500 sec, 18.0 mm</strong></p>
+    </div>
+
+    <!-- Low Angle Shot -->
+    <img src="LOW.JPG" alt="Low Angle Shot of Zelda at Cannon Beach">
+    
+    <div class="text-box">
+        <p><strong>Zelda, a kindergarten teacher, balances playfully on a log at Cannon Beach on September 20, 2024. The low angle brings out her carefree nature and adds a unique viewpoint to the scene.</strong></p>
+        <p><strong>Photo by Paul Stultz</strong></p>
+        <p><strong>Date Shot: September 20, 2024</strong></p>
+        <p><strong>Exposure Information: ISO 100, f/4.5, 1/500 sec, 18.0 mm</strong></p>
+    </div>
 
     <!-- Bagel's Frozen Motion -->
     <h2 class="text-box">Creative Shutter Speed: Bagel's Flight</h2>
     
-    <img src="IMG_3431.JPG" alt="Frozen Motion of Bagel" style="width:100%; max-width:600px; display:block; margin:auto;">
+    <img src="IMG_3431.JPG" alt="Frozen Motion of Bagel">
     
     <div class="text-box">
         <p><strong>Bagel, a French Bulldog, mid-jump with her motion perfectly frozen on September 8, 2024, in her backyard in West Linn, Oregon. This photo demonstrates the use of a fast shutter speed to freeze motion, taken for a digital photography course.</strong></p>
-        
         <p><strong>Photo by Paul Stultz</strong></p>
-        
         <p><strong>Date Shot: September 8, 2024</strong></p>
-        
         <p><strong>Exposure Information: ISO 400, f/5.6, 1/800 sec, 28.0 mm</strong></p>
     </div>
 
     <!-- Bagel's Motion Blur -->
-    <img src="IMG_3428.JPG" alt="Motion Blur of Bagel" style="width:100%; max-width:600px; display:block; margin:auto;">
+    <img src="IMG_3428.JPG" alt="Motion Blur of Bagel">
     
     <div class="text-box">
         <p><strong>Bagel, a French Bulldog, leaps off the couch, creating a dynamic blur on September 8, 2024, in her backyard in West Linn, Oregon. This photo captures motion blur to highlight movement, demonstrating the use of a slow shutter speed for a digital photography course.</strong></p>
-        
         <p><strong>Photo by Paul Stultz</strong></p>
-        
         <p><strong>Date Shot: September 8, 2024</strong></p>
-        
         <p><strong>Exposure Information: ISO 100, f/5.6, 1/15 sec, 28.0 mm</strong></p>
     </div>
 
     <!-- Depth of Field Exercise: Oreo -->
     <h2 class="text-box">Depth of Field Exercise: Oreo</h2>
     
-    <img src="IMG_3393.JPG" alt="Storytelling Photo of Oreo" style="width:100%; max-width:600px; display:block; margin:auto;">
+    <img src="IMG_3393.JPG" alt="Storytelling Photo of Oreo">
     
     <div class="text-box">
         <p><strong>Oreo, a Boston Terrier and French Bulldog mix, relaxes under the warm sunlight on August 30, 2024, in her backyard in West Linn, Oregon. Taken for a digital photography course, this storytelling photo features a wide depth of field, capturing the environment around Oreo.</strong></p>
-        
         <p><strong>Photo by Paul Stultz</strong></p>
-        
         <p><strong>Date Shot: August 30, 2024</strong></p>
-        
         <p><strong>Exposure Information: ISO 200, f/22.0, 1/60 sec, 23.0 mm</strong></p>
     </div>
 
-    <img src="IMG_3397.JPG" alt="Close-up of Oreo" style="width:100%; max-width:600px; display:block; margin:auto;">
+    <img src="IMG_3397.JPG" alt="Close-up of Oreo">
     
     <div class="text-box">
         <p><strong>Oreo, a sleepy Boston Terrier and French Bulldog mix, basks in the sun on August 30, 2024, in her backyard in West Linn, Oregon. Captured for a digital photography course, this photo uses a small depth of field to focus sharply on Oreo's relaxed expression while the background is blurred.</strong></p>
-        
         <p><strong>Photo by Paul Stultz</strong></p>
-        
         <p><strong>Date Shot: August 30, 2024</strong></p>
-        
         <p><strong>Exposure Information: ISO 200, f/5.0, 1/1600 sec, 39.0 mm</strong></p>
     </div>
 
     <!-- Casual Portrait of Gigi -->
     <h2 class="text-box">Casual Portrait of Gigi</h2>
     
-    <img src="IMG_3380.JPG" alt="Casual Portrait of Gigi" style="width:100%; max-width:600px; display:block; margin:auto;">
+    <img src="IMG_3380.JPG" alt="Casual Portrait of Gigi">
     
     <div class="text-box">
         <p><strong>Gigi, a former Special Education teacher, poses for a casual portrait on August 22, 2024, in her backyard in West Linn, Oregon. This casual portrait was taken for the first assignment in a digital photography course at Colorado State University.</strong></p>
-        
         <p><strong>Photo by Paul Stultz</strong></p>
-        
         <p><strong>Date Shot: August 22, 2024</strong></p>
-        
         <p><strong>Exposure Information: ISO 100, f/5.6, 1/60 sec, 28 mm</strong></p>
     </div>
 

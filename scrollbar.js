@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     let currentFact = "Welcome to VisitPaul.com!";
     let recentFacts = [];
-    const maxRecentFacts = 32;
+    const maxRecentFacts = 33;
 
 const facts = [
     "My uncle thought I was a genius for putting PB into my cereal.",
@@ -27,7 +27,7 @@ const facts = [
     "The original site logo, a GIF, was removed for flashing too fast.",
     "Inspired by 'The Useless Web', I wanted a cool website since I was 15.",
     "As an adult, I went half a year without eating a dessert.",
-    "It would take over 10 minutes to view all my fun facts in one visit.",
+    "It would take over 8 minutes to view all my fun facts in one visit.",
     "I prefer my coffee unsweetened or extremely sweetened- no in between.",
     "Since I was a kid, I have wanted a classic car.",
     "I was just a few minutes away from being born in November.",

@@ -3,6 +3,11 @@ const ctx = canvas.getContext('2d');
 const gameWidth = 800; // The virtual width of the game
 const gameHeight = 600; // The virtual height of the game
 
+// Physics are tuned for 60 FPS. Delta-time scales every per-frame update
+// so Mac (often 120 Hz ProMotion) matches Windows (typically 60 Hz).
+const TARGET_FPS = 60;
+const FRAME_MS = 1000 / TARGET_FPS;
+let lastFrameTime = performance.now();
 
 let spaceship = {
     x: gameWidth / 4,
@@ -18,7 +23,6 @@ let spaceship = {
     driftFactor: .95,
     lateralSpeed: 0,
     driftAngle: 0,
-    rotation: 0,
     targetRotation: 0,
     traction: 0.1,
     recentTurnAmount: 0,
@@ -80,9 +84,9 @@ document.getElementById('colorButton').addEventListener('click', function() {
     spaceship.color = colors[colorIndex];
 });
 
-function updateSpaceship() {
-    if (keys.w) spaceship.speed = Math.min(spaceship.speed + spaceship.acceleration, spaceship.maxSpeed);
-    if (keys.s) spaceship.speed = Math.max(spaceship.speed - spaceship.deceleration, -spaceship.maxSpeed);
+function updateSpaceship(dt) {
+    if (keys.w) spaceship.speed = Math.min(spaceship.speed + spaceship.acceleration * dt, spaceship.maxSpeed);
+    if (keys.s) spaceship.speed = Math.max(spaceship.speed - spaceship.deceleration * dt, -spaceship.maxSpeed);
 
     // Traction calculation
     const baseTraction = 0.05; // Base traction value
@@ -93,16 +97,16 @@ function updateSpaceship() {
     // Turn amount calculation
     const turningMultiplier = 0.5;
     let turnAmount = 0;
-    if (keys.a) turnAmount -= spaceship.turningSpeed * turningMultiplier;
-    if (keys.d) turnAmount += spaceship.turningSpeed * turningMultiplier;
+    if (keys.a) turnAmount -= spaceship.turningSpeed * turningMultiplier * dt;
+    if (keys.d) turnAmount += spaceship.turningSpeed * turningMultiplier * dt;
 
     // Update target rotation and accumulate turn amount
     if (turnAmount !== 0) {
         spaceship.targetRotation += turnAmount;
         spaceship.recentTurnAmount += Math.abs(turnAmount);
     } else {
-        // Reduce recent turn amount over time
-        spaceship.recentTurnAmount *= 0.9;
+        // Reduce recent turn amount over time (frame-rate independent)
+        spaceship.recentTurnAmount *= Math.pow(0.9, dt);
     }
 
     // Check for spin-out condition
@@ -114,10 +118,11 @@ function updateSpaceship() {
 
     // Handle spinning out
     if (spaceship.isSpinningOut) {
-        spaceship.rotation += 0.023; // Rapid spin
+        spaceship.rotation += 0.023 * dt; // Rapid spin
         // Add logic to stop spinning out if necessary (e.g., reducing speed or after a time delay)
     } else {
-        spaceship.rotation += (spaceship.targetRotation - spaceship.rotation) * spaceship.traction;
+        const align = 1 - Math.pow(1 - spaceship.traction, dt);
+        spaceship.rotation += (spaceship.targetRotation - spaceship.rotation) * align;
     }
 
     const currentTime = Date.now();
@@ -125,7 +130,7 @@ function updateSpaceship() {
         if (!spaceship.spinOutStartTime) {
             spaceship.spinOutStartTime = currentTime; // Record the start time of spin-out
         }
-        spaceship.rotation += 0.016; // Rapid spin
+        spaceship.rotation += 0.016 * dt; // Rapid spin
 
         if (currentTime - spaceship.spinOutStartTime > 50) { // Spin-out lasts for twentieth of a second
             spaceship.isSpinningOut = false;
@@ -138,19 +143,20 @@ function updateSpaceship() {
         spaceship.spinOutCooldownStartTime = null; // Reset cooldown start time
 
         // Gradually align rotation with targetRotation based on traction
-        spaceship.rotation += (spaceship.targetRotation - spaceship.rotation) * spaceship.traction;
+        const align = 1 - Math.pow(1 - spaceship.traction, dt);
+        spaceship.rotation += (spaceship.targetRotation - spaceship.rotation) * align;
 
         // Update target rotation and accumulate turn amount for spin-out
         let turnAmount = 0;
-        if (keys.a) turnAmount -= spaceship.turningSpeed * turningMultiplier;
-        if (keys.d) turnAmount += spaceship.turningSpeed * turningMultiplier;
+        if (keys.a) turnAmount -= spaceship.turningSpeed * turningMultiplier * dt;
+        if (keys.d) turnAmount += spaceship.turningSpeed * turningMultiplier * dt;
 
         if (turnAmount !== 0) {
             spaceship.targetRotation += turnAmount;
             spaceship.recentTurnAmount += Math.abs(turnAmount);
         } else {
             // Reduce recent turn amount over time
-            spaceship.recentTurnAmount *= 0.9;
+            spaceship.recentTurnAmount *= Math.pow(0.9, dt);
         }
 
         // Check for spin-out condition
@@ -160,8 +166,8 @@ function updateSpaceship() {
     }
 
     if (isOffRoad()) {
-        spaceship.speed *= 0.8;
-        spaceship.lateralSpeed *= 0.8;
+        spaceship.speed *= Math.pow(0.8, dt);
+        spaceship.lateralSpeed *= Math.pow(0.8, dt);
     } else {
         spaceship.speed = Math.min(spaceship.speed, spaceship.maxSpeed);
         spaceship.lateralSpeed = Math.min(spaceship.lateralSpeed, spaceship.maxSpeed);
@@ -169,12 +175,12 @@ function updateSpaceship() {
 
     // Drift mechanic and basic movement combined
     const driftForce = keys.a || keys.d ? 0.15 : 0;
-    spaceship.lateralSpeed += driftForce * (spaceship.speed / spaceship.maxSpeed);
-    spaceship.lateralSpeed *= 0.95;
+    spaceship.lateralSpeed += driftForce * (spaceship.speed / spaceship.maxSpeed) * dt;
+    spaceship.lateralSpeed *= Math.pow(0.95, dt);
     spaceship.driftAngle = keys.a ? -2 : keys.d ? 2 : 0;
 
-    spaceship.x += spaceship.speed * Math.cos(spaceship.rotation) + spaceship.lateralSpeed * Math.cos(spaceship.rotation + spaceship.driftAngle);
-    spaceship.y += spaceship.speed * Math.sin(spaceship.rotation) + spaceship.lateralSpeed * Math.sin(spaceship.rotation + spaceship.driftAngle);
+    spaceship.x += (spaceship.speed * Math.cos(spaceship.rotation) + spaceship.lateralSpeed * Math.cos(spaceship.rotation + spaceship.driftAngle)) * dt;
+    spaceship.y += (spaceship.speed * Math.sin(spaceship.rotation) + spaceship.lateralSpeed * Math.sin(spaceship.rotation + spaceship.driftAngle)) * dt;
 }
 
 let timerStarted = false;
@@ -250,6 +256,7 @@ function startCountdown() {
         if (countdown < 0) {
             clearInterval(countdownInterval);
             isGameRunning = true;
+            lastFrameTime = performance.now();
             requestAnimationFrame(gameLoop);
         }
     }, 1000); // Update every second
@@ -303,16 +310,26 @@ function drawText(text, x, y, fontSize, font, color) {
     ctx.fillText(text, x, y);
 }
 
-function gameLoop() {
+function gameLoop(now) {
     if (lapCount < 10) {
+        // Delta relative to 60 FPS: 1.0 at 60 Hz, ~0.5 at 120 Hz
+        if (typeof now !== 'number') {
+            now = performance.now();
+        }
+        let dt = (now - lastFrameTime) / FRAME_MS;
+        lastFrameTime = now;
+        // Clamp so a long hitch doesn't teleport the ship
+        if (!Number.isFinite(dt) || dt <= 0) dt = 1;
+        dt = Math.min(dt, 3);
+
         // Clear the canvas
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         
 
         // Update and draw game components
-        updateSpaceship();
+        updateSpaceship(dt);
         checkBorderCollision();
-        checkTrackCollision();
+        checkTrackCollision(dt);
         checkLapCompletion();
         drawSpaceship();
         drawTrack();
@@ -335,7 +352,8 @@ function gameLoop() {
 }
 
     
-function checkTrackCollision() {
+function checkTrackCollision(dt) {
+    if (typeof dt !== 'number') dt = 1;
     const trackBorderWidth = 200; // Adjusted track border width
     const innerTrackX = trackBorderWidth;
     const innerTrackY = trackBorderWidth;
@@ -348,8 +366,8 @@ function checkTrackCollision() {
         spaceship.y - spaceship.height / 2 >= innerTrackY && 
         spaceship.y + spaceship.height / 2 <= innerTrackY + innerTrackHeight) {
         // Inside the smaller inner track area - reduce speed
-        spaceship.speed *= 0.7;
-        spaceship.lateralSpeed *= 0.7;
+        spaceship.speed *= Math.pow(0.7, dt);
+        spaceship.lateralSpeed *= Math.pow(0.7, dt);
     } else {
         // Outside the smaller inner track area - no speed reduction
         spaceship.speed = Math.min(spaceship.speed, spaceship.maxSpeed);
@@ -416,6 +434,7 @@ function handleKeyDown(e) {
             startTime = Date.now(); // Start the timer
             if (!isGameRunning) {
                 isGameRunning = true;
+                lastFrameTime = performance.now();
                 requestAnimationFrame(gameLoop); // Start the game loop
             }
         }
@@ -437,6 +456,7 @@ function handleKeyUp(e) {
 document.addEventListener('keydown', handleKeyDown);
 document.addEventListener('keyup', handleKeyUp);
 
+lastFrameTime = performance.now();
 requestAnimationFrame(gameLoop);
 
 document.getElementById('startButton').addEventListener('click', function() {

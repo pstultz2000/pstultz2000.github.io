@@ -202,11 +202,14 @@ function isOffRoad() {
            spaceship.y + spaceship.height / 2 <= innerTrackY + innerTrackHeight;
 }
 
-// Timer Variables
-let startTime = Date.now();
+// Timer Variables — clock stays at 0 until the player starts driving (W)
+let startTime = null;
 let elapsedTime = 0;
 
 function updateTimer() {
+    if (!timerStarted || startTime === null) {
+        return '0:00.0';
+    }
     elapsedTime = Date.now() - startTime;
     let tenths = Math.floor((elapsedTime % 1000) / 100); // Calculate tenths of a second
     let seconds = Math.floor((elapsedTime / 1000) % 60);
@@ -338,7 +341,7 @@ function gameLoop(now) {
         drawText(`Controls: WASD`, 640, 30, 20, "Arial", "white");
         drawText(`VisitPaul.com`, 640, 60, 20, "Arial", "white");
         drawText(`BGM: "Transition" by Paul, Capsular Star (2024)`, 476, 570, 15, "Arial", "gray");
-        drawText(`© 2024 Paul Stultz. All Rights Reserved.`, 526, 550, 15, "Arial", "gray");
+        drawText(`© 2026 Paul Stultz. All Rights Reserved.`, 526, 550, 15, "Arial", "gray");
         drawText(`Developer time: 0:43.4`, 10, 560, 20, "Arial", "white");
         drawText("VoidLoop", 330, 35, 35, "Monaco", "Purple");
 

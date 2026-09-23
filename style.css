@@ -30,16 +30,6 @@ html {
   position: relative;
 }
 
-
-a {
-  color: #2525EE; /* Normal state */
-}
-
-a:visited {
-  color: #7300df; /* Color for visited links */
-}
-
-
 .colorchangeclass {
   border-left: 1px solid red;
   border-right: 1px solid red;
@@ -486,11 +476,11 @@ footer {
 }
 
 a {
-  color: #2525EE; /* Normal state */
+  color: #4141F1; /* Normal state */
 }
 
 a:visited {
-  color: #7300df; /* Color for visited links */
+  color: #A13DFF; /* Color for visited links */
 }
 
 

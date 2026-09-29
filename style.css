@@ -623,18 +623,6 @@ th, td, caption, p, table {
   100% { transform: translateX(-100%); }
 }
 
-.animated-text {
-  color: #0013e3;
-  text-decoration: none;
-  font-size: 1.2em;
-  display: inline-block;
-  position: relative;
-  transition: all 0.3s ease;
-  animation: swing 2s infinite ease-in-out;
-  top: -10px;
-  z-index: 1;
-}
-
 @keyframes swing {
   0% { transform: rotate(0deg); }
   10% { transform: rotate(10deg); }

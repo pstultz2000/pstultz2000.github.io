@@ -236,7 +236,7 @@ th, td, caption, p, table {
 }
 
 .animated-text {
-  color: 4D5BFF;
+  color: #4D5BFF;
   text-decoration: none;
   font-size: 1.2em;
   display: inline-block;
@@ -247,7 +247,7 @@ th, td, caption, p, table {
 }
 
 .animated-text-2 {
-  color: 00BD84; /* Bright turquoise color fitting a space theme */
+  color: #00BD84; /* Bright turquoise color fitting a space theme */
   text-decoration: none;
   font-size: 1.2em;
   font-family: 'Helvetica', sans-serif;

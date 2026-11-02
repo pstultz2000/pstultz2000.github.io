@@ -478,9 +478,11 @@ footer {
   }
 }
 
-/* Landing-page border animation */
-body.home-page {
-  animation: home-border-spectrum 48s linear infinite;
+/* Animate the landing-page border only on mobile. */
+@media screen and (max-width: 600px) {
+  body.home-page {
+    animation: home-border-spectrum 48s linear infinite;
+  }
 }
 
 @keyframes home-border-spectrum {

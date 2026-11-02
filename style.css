@@ -485,13 +485,10 @@ body.home-page {
 
 @keyframes home-border-spectrum {
   0%, 100% { border-left-color: #3875c9; } /* Blue */
-  12.5%    { border-left-color: #8054c4; } /* Violet */
-  25%      { border-left-color: #bd4b9e; } /* Pink */
-  37.5%    { border-left-color: #c44b62; } /* Rose red */
-  50%      { border-left-color: #c47742; } /* Copper orange */
-  62.5%    { border-left-color: #b9a044; } /* Muted gold */
-  75%      { border-left-color: #489c68; } /* Green */
-  87.5%    { border-left-color: #339fa8; } /* Teal */
+  20%      { border-left-color: #8054c4; } /* Violet */
+  40%      { border-left-color: #bd4b9e; } /* Pink */
+  60%      { border-left-color: #489c68; } /* Green */
+  80%      { border-left-color: #339fa8; } /* Teal */
 }
 
 @media (prefers-reduced-motion: reduce) {

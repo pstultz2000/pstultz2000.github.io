@@ -480,7 +480,7 @@ footer {
 
 /* Landing-page border animation */
 body.home-page {
-  animation: home-border-spectrum 42s linear infinite;
+  animation: home-border-spectrum 48s linear infinite;
 }
 
 @keyframes home-border-spectrum {
